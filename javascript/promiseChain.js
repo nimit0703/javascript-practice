@@ -15,6 +15,11 @@ createOrder(cart)
     console.log(err.message);
   });
 
+/*
+
+if a 'then' is after a 'catch' then this 'then' will be exectued always because 
+'catch' has already captured and handdle all errors above it
+*/
 function proceedToPayment(orderId){
     return new Promise(function (resolve,reject){
         resolve(`payment was successfull ${orderId}`);
