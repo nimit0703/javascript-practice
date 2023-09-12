@@ -16,6 +16,8 @@ function show() {
     // console.log(intro);
     document.getElementById("img").setAttribute("src", img);
     document.getElementById("img").style.display = "inline-block";
+    document.getElementById("img").style.margin = "5% 40%";
+
     document.getElementById("text").textContent = intro;
   });
 }
