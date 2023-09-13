@@ -14,16 +14,19 @@ onload = () => {
     })
     .then((data) => {
       allContryData = data;
+      console.log(allContryData[3]);
     });
 };
 
 function showNewContry() {
+  debugger
   leftContryData = allContryData[getRandomNumber()];
   rightContryData = allContryData[getRandomNumber()];
   if (leftContryData !== rightContryData) {
     // changing styles everytime when click on next;
-    document.getElementById("left").style.backgroundColor = "white";
-    document.getElementById("right").style.backgroundColor = "white";
+    console.log(leftContryData.flags.png);
+    document.getElementById("left").style.backgroundImage = leftContryData.flags.png;
+    document.getElementById("right").style.backgroundColor = "none";
     document.getElementById("left-contry-population").style.display = "none";
     document.getElementById("right-contry-population").style.display = "none";
     document.getElementById("right-contry").textContent =
