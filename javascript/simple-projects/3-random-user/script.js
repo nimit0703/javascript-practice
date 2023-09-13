@@ -12,36 +12,35 @@ function show() {
   const user1Data = getData(); // return promise
   const user2Data = getData(); //
   const user3Data = getData(); //
-  //   console.log(user1Data,user2Data,user3Data);
   const usersData = [user1Data, user2Data, user3Data];
 
   Promise.allSettled(usersData).then((users) => {
     const filteredUser = users
       .filter((e) => e.value !== undefined)
-      .map((e) => e.value);
+      .map((e) => e.value);   // filtering the users which are resolved
+
+
     while (filteredUser.length !== 3) {
-      filteredUser.push(defaultuser);
+      filteredUser.push(defaultuser); // filling data with default data
     }
     console.log(filteredUser);
     showUserOnUI(filteredUser);
   });
 
-  //   Promise.all(usersData).then((users) => {
-  //     console.log("all three user's data is fatched", users);
-  //     showUserOnUI(users).then(() => {
-  //       console.log("all three users are shown on UI, congrats");
-  //     });
-  //   });
+  /*
+    //by using .all if any of the userdata is not rullfilled then program will  stopes 
+    
+    Promise.all(usersData).then((users) => {
+      console.log("all three user's data is fatched", users);
+      showUserOnUI(users).then(() => {
+        console.log("all three users are shown on UI, congrats");
+      });
+    });
+
+  */
 }
 
 function showUserOnUI(users) {
-  function getIntro(user) {
-    return `Hello my name is ${user.name.title}, ${user.name.first}  i am ${user.dob.age} year old ${user.gender} form ${user.location.city}, ${user.location.state}, ${user.location.country}
-        `;
-  }
-  function getImg(user) {
-    return user.picture.large;
-  }
   return new Promise((resolve, reject) => {
     for (let i = 0; i < users.length; i++) {
       const imgId = `img${i}`;
@@ -56,6 +55,13 @@ function showUserOnUI(users) {
       resolve();
     }
   });
+
+  function getIntro(user) {
+    return `Hello my name is ${user.name.title}, ${user.name.first}  i am ${user.dob.age} year old ${user.gender} form ${user.location.city}, ${user.location.state}, ${user.location.country}`;
+  }
+  function getImg(user) {
+    return user.picture.large;
+  }
 }
 
 function getData() {
@@ -64,7 +70,7 @@ function getData() {
       return responce.json();
     })
     .then(function (data) {
-      console.log(data.results[0]);
+      //   console.log(data.results[0]);
       return new Promise((resolve, reject) => {
         // custom cases reject if isFemale
         if (data.results[0].gender === "male") {
