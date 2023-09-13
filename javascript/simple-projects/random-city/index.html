@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container-main">
-        <div class="title">
-            Guess Population?
+      <div class="title">Guess Population?</div>
+      <div class="container">
+        <div class="left" id="left" onclick="leftClick()">
+          <div class="contry-name" id="left-contry"></div>
+          <div
+            class="contry-population"
+            id="left-contry-population"
+            style="display: none"
+          ></div>
         </div>
-        <div class="container">
-            <div class="left" id="left" onclick="leftClick()">
-                <div class="contry-name" id="left-contry"></div>
-                <div class="contry-population" id="left-contry-population" style="display: none;">30,00,0000</div>
-            </div>
-            <div class="right" id="right" onclick="rightClick()">
-                <div class="contry-name"id="right-contry"></div>
-                <div class="contry-population" id="right-contry-population"style="display: none;">30,00,0000</div>
-            </div>
+        <div class="right" id="right" onclick="rightClick()">
+          <div class="contry-name" id="right-contry"></div>
+          <div
+            class="contry-population"
+            id="right-contry-population"
+            style="display: none"
+          ></div>
         </div>
-        <button class="btn-next" onclick="showNewContry()">click me</button>
+      </div>
+      <button class="btn-next" onclick="showNewContry()">click me</button>
     </div>
 
-
     <script src="script.js"></script>
-    
-</body>
+  </body>
 </html>
