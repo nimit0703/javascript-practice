@@ -41,6 +41,7 @@ function showNewContry() {
 }
 
 function showResult() {
+  // debugger
   let leftContryPopulation = leftContryData.population;
   let rightContryPopulation = rightContryData.population;
 
