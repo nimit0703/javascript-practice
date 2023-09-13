@@ -1,9 +1,9 @@
 const API = "https://restcountries.com/v3.1/all";
 
 let allContryData;
-let canPlay = false;
-let leftSelected = false;
-let rightSelected = false;
+var canPlay = false;
+var leftSelected = false;
+var rightSelected = false;
 let leftContryData;
 let rightContryData;
 
@@ -13,37 +13,64 @@ function showResult() {
   let rightContryPopulation = rightContryData.population;
 
   document.getElementById("left-contry-population").textContent =
-    leftContryPopulation;
+    leftContryPopulation.toLocaleString();
   document.getElementById("right-contry-population").textContent =
-    rightContryPopulation;
+    rightContryPopulation.toLocaleString();
   document.getElementById("left-contry-population").style.display = "block";
   document.getElementById("right-contry-population").style.display = "block";
 
-  if (leftContryPopulation > rightContryData) {
-    console.log(leftContryData.name.common, " is winner");
+  if (leftContryPopulation > rightContryPopulation) {
+    console.log("left ", leftContryPopulation > rightContryPopulation);
+    if (window.leftSelected) {
+      document.getElementById("left").style.backgroundColor = "green";
+    } else {
+      document.getElementById("right").style.backgroundColor = "red";
+    }
+    console.log(leftContryData.name.common, " is winner Left");
+    console.log(
+      "use selected",
+      window.leftSelected
+        ? leftContryData.name.common
+        : rightContryData.name.common
+    );
   } else {
-    console.log(rightContryData.name.common, " is winner");
+    if (window.rightSelected) {
+      document.getElementById("right").style.backgroundColor = "green";
+    } else {
+      document.getElementById("left").style.backgroundColor = "red";
+    }
+    console.log(rightContryData.name.common, " is winner Right");
+    console.log(
+      "use selected",
+      window.leftSelected
+        ? leftContryData.name.common
+        : rightContryData.name.common
+    );
   }
 }
 function leftClick() {
-  if (canPlay) {
-    leftSelected = true;
-    rightSelected = false;
+  if (window.canPlay) {
+    window.canPlay = false;
+
+    window.leftSelected = true;
+    window.rightSelected = false;
     setTimeout(() => {
       showResult();
-    }, 5000);
+    }, 1000);
+    document.getElementById("left").style.backgroundColor = "yellow";
   }
-  document.getElementById("left").style.backgroundColor = "yellow";
 }
 function rightClick() {
-  if (canPlay) {
-    leftSelected = false;
-    rightSelected = true;
+  if (window.canPlay) {
+    window.canPlay = false;
+
+    window.leftSelected = false;
+    window.rightSelected = true;
     setTimeout(() => {
-        showResult();
-      }, 5000);
+      showResult();
+    }, 1000);
+    document.getElementById("right").style.backgroundColor = "yellow";
   }
-  document.getElementById("right").style.backgroundColor = "yellow";
 }
 function showNewContry() {
   leftContryData = allContryData[getRandomNumber()];
@@ -51,6 +78,8 @@ function showNewContry() {
   if (leftContryData !== rightContryData) {
     document.getElementById("left").style.backgroundColor = "white";
     document.getElementById("right").style.backgroundColor = "white";
+    document.getElementById("left-contry-population").style.display = "none";
+    document.getElementById("right-contry-population").style.display = "none";
     document.getElementById("right-contry").textContent =
       rightContryData.name.common;
     document.getElementById("left-contry").textContent =
@@ -73,7 +102,7 @@ window.onload = () => {
       return responce.json();
     })
     .then((data) => {
-      console.log(data);
+      //   console.log(data);
       allContryData = data;
     });
 };
