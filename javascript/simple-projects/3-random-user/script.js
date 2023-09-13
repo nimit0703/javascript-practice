@@ -6,12 +6,18 @@ function show() {
   const user3Data = getData(); //
   //   console.log(user1Data,user2Data,user3Data);
   const usersData = [user1Data, user2Data, user3Data];
-  Promise.all(usersData).then((users) => {
-    console.log("all three user's data is fatched", users);
-    showUserOnUI(users).then(() => {
-      console.log("all three users are shown on UI, congrats");
-    });
+
+  Promise.allSettled(usersData).then((users) => {
+    const filteredUser = users.filter((e)=>e.value!==undefined).map((e)=>e.value);
+    console.log(filteredUser)
+    showUserOnUI(filteredUser);
   });
+  //   Promise.all(usersData).then((users) => {
+  //     console.log("all three user's data is fatched", users);
+  //     showUserOnUI(users).then(() => {
+  //       console.log("all three users are shown on UI, congrats");
+  //     });
+  //   });
 }
 
 function showUserOnUI(users) {
@@ -23,7 +29,7 @@ function showUserOnUI(users) {
     return user.picture.large;
   }
   return new Promise((resolve, reject) => {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < users.length; i++) {
       const imgId = `img${i}`;
       const textId = `text${i}`;
       const intro = getIntro(users[i]);
@@ -33,6 +39,7 @@ function showUserOnUI(users) {
       document.getElementById(imgId).style.display = "inline-block";
       document.getElementById(imgId).style.margin = "5% 40%";
       document.getElementById(textId).textContent = intro;
+      resolve();
     }
   });
 }
@@ -45,7 +52,14 @@ function getData() {
     .then(function (data) {
       console.log(data.results[0]);
       return new Promise((resolve, reject) => {
-        resolve(data.results[0]);
+        // custom cases reject if isFemale
+        if (data.results[0].gender === "male") {
+          resolve(data.results[0]);
+        }
+        // else{
+        //     resolve( getData());
+        // }
+        reject(new Error("female"));
       });
     });
 }

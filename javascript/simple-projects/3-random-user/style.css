@@ -25,7 +25,9 @@
   /* align-items: center; */
   /* padding: 100px; */
   margin: auto;
-  border-right: 2px solid green;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-image: linear-gradient(rgb(146, 2, 122), blue) 27;
 }
 
 .text {
