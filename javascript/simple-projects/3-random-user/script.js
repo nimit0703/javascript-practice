@@ -1,5 +1,13 @@
 const API = "https://randomuser.me/api/";
 
+const defaultuser = {
+  name: { title: "james", first: "carl" },
+  dob: { age: 0 },
+  gender: "",
+  location: { city: "aaa", state: "bbb", contry: "ccc" },
+  picture: { large: "https://www.w3schools.com/howto/img_avatar.png" },
+};
+
 function show() {
   const user1Data = getData(); // return promise
   const user2Data = getData(); //
@@ -8,10 +16,16 @@ function show() {
   const usersData = [user1Data, user2Data, user3Data];
 
   Promise.allSettled(usersData).then((users) => {
-    const filteredUser = users.filter((e)=>e.value!==undefined).map((e)=>e.value);
-    console.log(filteredUser)
+    const filteredUser = users
+      .filter((e) => e.value !== undefined)
+      .map((e) => e.value);
+    while (filteredUser.length !== 3) {
+      filteredUser.push(defaultuser);
+    }
+    console.log(filteredUser);
     showUserOnUI(filteredUser);
   });
+
   //   Promise.all(usersData).then((users) => {
   //     console.log("all three user's data is fatched", users);
   //     showUserOnUI(users).then(() => {
