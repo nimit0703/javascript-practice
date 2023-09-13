@@ -82,9 +82,7 @@ function showResult() {
     );
   }
 
-  setTimeout(() => {
-    showNewContry();
-  }, 5000);
+
 }
 function leftClick() {
   if (canPlay) {
