@@ -22,9 +22,9 @@ function showResult() {
   if (leftContryPopulation > rightContryPopulation) {
     console.log("left ", leftContryPopulation > rightContryPopulation);
     if (window.leftSelected) {
-      document.getElementById("left").style.backgroundColor = "green";
+      document.getElementById("left").style.backgroundColor = "rgb(84 199 84 / 56%)";
     } else {
-      document.getElementById("right").style.backgroundColor = "red";
+      document.getElementById("right").style.backgroundColor = "rgb(193 52 62 / 56%)";
     }
     console.log(leftContryData.name.common, " is winner Left");
     console.log(
@@ -35,9 +35,9 @@ function showResult() {
     );
   } else {
     if (window.rightSelected) {
-      document.getElementById("right").style.backgroundColor = "green";
+      document.getElementById("right").style.backgroundColor = "rgb(84 199 84 / 56%)";
     } else {
-      document.getElementById("left").style.backgroundColor = "red";
+      document.getElementById("left").style.backgroundColor = "rgb(193 52 62 / 56%)";
     }
     console.log(rightContryData.name.common, " is winner Right");
     console.log(
@@ -57,7 +57,7 @@ function leftClick() {
     setTimeout(() => {
       showResult();
     }, 1000);
-    document.getElementById("left").style.backgroundColor = "yellow";
+    document.getElementById("left").style.backgroundColor = "#475560a6";
   }
 }
 function rightClick() {
@@ -69,7 +69,7 @@ function rightClick() {
     setTimeout(() => {
       showResult();
     }, 1000);
-    document.getElementById("right").style.backgroundColor = "yellow";
+    document.getElementById("right").style.backgroundColor = "#475560a6";
   }
 }
 function showNewContry() {
