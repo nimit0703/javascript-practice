@@ -25,9 +25,14 @@ function showNewContry() {
   if (leftContryData !== rightContryData) {
     // changing styles everytime when click on next;
     console.log(leftContryData.flags.png);
-    // document.getElementById("left").style.backgroundImage = leftContryData.flags.png;
-    document.getElementById("left").style.backgroundColor = "none";
-    document.getElementById("right").style.backgroundColor = "none";
+    document.getElementById("left").style.background = `url(${leftContryData.flags.png}) no-repeat`;
+    document.getElementById("left").style.backgroundSize = `100% 100%`;
+    document.getElementById("left").style.opacity="0.7";
+    document.getElementById("right").style.background = `url(${rightContryData.flags.png}) no-repeat`;
+    document.getElementById("right").style.backgroundSize = `100% 100%`;
+    document.getElementById("right").style.opacity="0.7";
+    document.getElementById("left").style.border = "none";
+    document.getElementById("right").style.border = "none";
     document.getElementById("left-contry-population").style.display = "none";
     document.getElementById("right-contry-population").style.display = "none";
     document.getElementById("right-contry").textContent =
@@ -60,12 +65,12 @@ function showResult() {
   if (leftContryPopulation > rightContryPopulation) {
     if (leftSelected) {
       // if we had selected left and answer is also left
-      document.getElementById("left").style.backgroundColor =
-        "rgb(84 199 84 / 56%)";
+      document.getElementById("left").style.border =
+        "20px solid Green";
     } else {
       // if we had selected Right and answer is left
-      document.getElementById("right").style.backgroundColor =
-        "rgb(193 52 62 / 56%)";
+      document.getElementById("right").style.border =
+        "20px solid red";
     }
     console.log(
       "use selected",
@@ -74,12 +79,12 @@ function showResult() {
   } else {
     if (rightSelected) {
       // if we had selected Right and answer is also right
-      document.getElementById("right").style.backgroundColor =
-        "rgb(84 199 84 / 56%)";
+      document.getElementById("right").style.border =
+        "20px solid Green";
     } else {
       // if we had selected left and answer is right
-      document.getElementById("left").style.backgroundColor =
-        "rgb(193 52 62 / 56%)";
+      document.getElementById("left").style.border =
+        "20px solid red";
     }
     console.log(
       "use selected",
@@ -104,7 +109,7 @@ function leftClick() {
     setTimeout(() => {
       showResult();
     }, 2000);
-    document.getElementById("left").style.backgroundColor = "#475560a6";
+    document.getElementById("left").style.border = "20px solid #475560a6";
   }
 }
 function rightClick() {
@@ -122,7 +127,7 @@ function rightClick() {
     setTimeout(() => {
       showResult();
     }, 2000);
-    document.getElementById("right").style.backgroundColor = "#475560a6";
+    document.getElementById("right").style.border = "20px solid #475560a6";
   }
 }
 
