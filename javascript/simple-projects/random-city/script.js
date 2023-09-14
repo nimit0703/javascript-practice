@@ -25,7 +25,8 @@ function showNewContry() {
   if (leftContryData !== rightContryData) {
     // changing styles everytime when click on next;
     console.log(leftContryData.flags.png);
-    document.getElementById("left").style.backgroundImage = leftContryData.flags.png;
+    // document.getElementById("left").style.backgroundImage = leftContryData.flags.png;
+    document.getElementById("left").style.backgroundColor = "none";
     document.getElementById("right").style.backgroundColor = "none";
     document.getElementById("left-contry-population").style.display = "none";
     document.getElementById("right-contry-population").style.display = "none";
