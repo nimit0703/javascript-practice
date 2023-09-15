@@ -35,3 +35,28 @@
     display: block;
     bottom: 20px;
 }
+
+h1{
+
+  font-size: 1.5em;
+  color: #f4b109;
+  display: inline;
+}
+h2{
+  font-size: 1em;
+  color: #f4b109;
+  display: inline;
+}
+h3{
+  font-size: 0.75em;
+  color: #f4b109;
+  display: inline;
+}
+
+#time{
+margin-left: 20px;
+}
+
+.text-right{
+  font-weight: bold;
+}

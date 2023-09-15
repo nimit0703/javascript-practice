@@ -12,11 +12,19 @@ var amount = 0;
 var totalBill = 0;
 var shipping = 0;
 
+setInterval(() => {
+  var date = new Date();
+  
+  document.getElementById("time").innerHTML = `<h1>${date.getHours()}: </h1><h2>${date.getMinutes()}: </h2><h3>${date.getSeconds()}</h3>`;
+  // console.log(date);
+}, 1000);
+
+
 //windos method
 window.onload = () => {
   setAmmountAndPrices();
 };
-
+//functions
 function addFruitToCart(pices, price) {
   var amount = pices * price;
   var shipping = amount >= 250 ? 0 : 99;
@@ -27,6 +35,7 @@ function addFruitToCart(pices, price) {
 }
 
 function addMangoes() {
+  //let
   let weHave = fruites.mango.amount;
   let cusWant = Number(document.getElementById("cust-mango-amount").value);
   if (cusWant === 0) {
