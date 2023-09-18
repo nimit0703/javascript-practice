@@ -9,16 +9,14 @@
 <body>
     <div class="notes" id="app">
         <div class="notes-sidebar">
-            <button class="notes-add">Add notes</button>
-            <div class="note-list">
-                <div class="notes-list-item">
-                    <div class="notes-small-title">Lecture notes</div>
-                    <div class="notes-small-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sunt a modi repudiandae asperiores.</div>
-                    <div class="notes-small-updated">thrusday </div>
-                </div>
+            <button class="notes-add" onclick="addNote()">Add Notes</button>
+            <div id="note-list">
             </div>
         </div>
-        <div class="notes-preview"></div>
+        <div class="notes-preview">
+            <input type="text" id="notes-title" class="notes-title" placeholder="Enter a Title">
+            <textarea name="" id="notes-body" cols="30" rows="10" class="notes-body"></textarea>
+        </div>
     </div>
     
 
