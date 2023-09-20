@@ -2,6 +2,7 @@
 // differenceWith // pending
 // intersectionWith //pending
 // pullAllWith
+// unionWith
 */
 
 // chunk
@@ -148,4 +149,7 @@ var evens = _.remove(array, function(n) {
 // => [1, 3]
  
 // console.log(evens);
-// => [2, 4]
+// => [2, 4]6
+
+// sortedIndexOf
+console.log(_.sortedIndexOf([4, 5, 5, 5, 6],6));
