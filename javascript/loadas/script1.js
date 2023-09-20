@@ -104,7 +104,7 @@ var arr = [1, 2, [3, 4,[ 5, 6,['abc'], 7], 8], 9];
 // fromPairs
 // returns an object composed from key-value pairs.
 
-var arr = [['a',1],['b',2],['c',3]]
+var arr = [['a',1,'d'],['b',2,'dd'],['c',3,'dd']]
 var fp = _.fromPairs(arr);
 // console.log(fp);
 // console.log(typeof(fp));
@@ -132,10 +132,10 @@ var array = ['a', 'b', 'c', 'a', 'b', 'c'];
 // pullAt
 var array = ['a', 'b', 'c', 'd'];
 var pulled = _.pullAt(array, [1, 3]);
- 
+
 // console.log(array);
 // => ['a', 'c']
- 
+
 // console.log(pulled);
 // => ['b', 'd']
 
@@ -144,7 +144,7 @@ var array = [1, 2, 3, 4];
 var evens = _.remove(array, function(n) {
   return n % 2 == 0;
 });
- 
+
 // console.log(array);
 // => [1, 3]
  
@@ -156,7 +156,14 @@ var evens = _.remove(array, function(n) {
 
 var zipped = _.zip(['a', 'b'], [1, 2], [true, false]);
 // => [['a', 1, true], ['b', 2, false]]
-console.log(zipped)
+// console.log(zipped)
 
-console.log(_.unzip(zipped));
+// console.log(_.unzip(zipped));
 // => [['a', 'b'], [1, 2], [true, false]]
+
+var arr = [['a',1,'d'],['b',2,'dd'],['c',3,'dd']]
+var fp = _.fromPairs(arr);
+// console.log(fp);
+// console.log(_.zipObject(arr,arr2));
+
+// console.log(_.zipObjectDeep(['a.b.c.e', 'a.b.d'], [1, 2]));
