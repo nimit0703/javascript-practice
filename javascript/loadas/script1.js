@@ -42,5 +42,23 @@ var diffBy = _.differenceBy(arr,arr2,"x"); //it will work in diffBy we take diff
 // drop
 // drop n elements from beginning
 var arr = [{x:1},{x:2},{x:3},{x:4},{x:5}];
-var newArr = _.drop(arr,3);
-console.log(newArr);
+var newArr = _.drop("arr",2);
+// console.log(newArr);
+
+// drop right
+// works same as drop but removes elements from right side
+
+
+//dropRightWhile
+var users = [
+    { 'user': 'barney',  'active': true },
+    { 'user': 'fred',    'active': false },
+    { 'user': 'pebbles', 'active': false },
+    { 'user': 'bob', 'active': false }
+  ];
+
+var arr  = _.dropRightWhile(users,['active', false]) // drop elements while condition is satisfied
+console.log(arr);
+
+// dropWhile
+// similar as dropRightWile just drop elements from left side 
