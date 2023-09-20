@@ -1,3 +1,8 @@
+/*
+// differenceWith // pending
+// intersectionWith //pending
+*/
+
 // chunk
 // chunk creates chuncks of small array from  given array
 // string is considered as array of character
@@ -35,9 +40,7 @@ var diff = _.difference(arr,arr2); //it will not work
 var diffBy = _.differenceBy(arr,arr2,"x"); //it will work in diffBy we take differnce by iterating values by x;
 // console.log(diffBy); // gives first 3 values
 
-/*
-// differenceWith // pending
-*/
+
 
 // drop
 // drop n elements from beginning
@@ -100,7 +103,21 @@ var arr = [1, 2, [3, 4,[ 5, 6,['abc'], 7], 8], 9];
 // returns an object composed from key-value pairs.
 
 var arr = [['a',1],['b',2],['c',3]]
-var fp = _.fromPairs[arr];
-console.log(fp);
-console.log(typeof(fp));
+var fp = _.fromPairs(arr);
+// console.log(fp);
+// console.log(typeof(fp));
+
+//indexof
+var arr = [1,2,3,4,5];
+// console.log(_.indexOf(arr,3,4)) //-1
+
+
+//intersection
+var a =['a','b']
+var b =['c','b']
+// console.log(_.intersection(a,b)) // ['b]
+
+// join 
+// console.log(_.join(['a', 'b', 'c'], '~')) // a~b~c
+// console.log(_.join("abcd", '~')) // a~b~c~d
 
