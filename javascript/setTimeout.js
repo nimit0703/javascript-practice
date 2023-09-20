@@ -9,9 +9,7 @@ function x(){
     }
 }
 function y(){
-
     for(let i=0;i<5;i++){
-        
         setTimeout(() => {
             console.log("y :",i);
         }, i*1000);

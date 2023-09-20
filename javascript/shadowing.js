@@ -1,8 +1,8 @@
 function shy() {
   var x = "original text";
   if (true) {
-    var x = "shadow text";
-    console.log("insideMethod", x);
+     var  x = "shadow text";
+    console.log("insideMethod ", x);
   }
   console.log(x);
 }

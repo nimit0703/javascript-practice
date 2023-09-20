@@ -86,12 +86,21 @@ var users = [
 // flatten
 // Flattens array a single level deep.
 var arr = [1, 2, [3, 4,[ 5, 6,['abc'], 7], 8], 9];
-console.log(_.flatten(arr)); // [ 1,2,3,4,[5,6,['abc'],7],8,9]
+// console.log(_.flatten(arr)); // [ 1,2,3,4,[5,6,['abc'],7],8,9]
 
 // flattenDeep
 // Recursively flattens array.
-console.log(_.flattenDeep(arr)); // [ 1,2,3,4,5,'abc'6,7,8,9]
+// console.log(_.flattenDeep(arr)); // [ 1,2,3,4,5,'abc'6,7,8,9]
 
 // flattenDepth
 // Recursively flatten array up to depth times
-console.log(_.flattenDepth(arr,2)); // [1, 2, 3, 4, 5, 6, ['abc'], 7, 8, 9]
+// console.log(_.flattenDepth(arr,2)); // [1, 2, 3, 4, 5, 6, ['abc'], 7, 8, 9]
+
+// fromPairs
+// returns an object composed from key-value pairs.
+
+var arr = [['a',1],['b',2],['c',3]]
+var fp = _.fromPairs[arr];
+console.log(fp);
+console.log(typeof(fp));
+

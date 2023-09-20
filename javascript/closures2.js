@@ -8,6 +8,7 @@ function z() {
     var a = 100;
     y();
   }
+  var b=45;
   x();
 }
 z();
