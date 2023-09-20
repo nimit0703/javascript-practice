@@ -58,7 +58,26 @@ var users = [
   ];
 
 var arr  = _.dropRightWhile(users,['active', false]) // drop elements while condition is satisfied
-console.log(arr);
+// console.log(arr);
 
 // dropWhile
 // similar as dropRightWile just drop elements from left side 
+
+var arr= [1,2,3,4,5,6,7];
+_.fill(arr,'*',3,5);
+// console.log(arr);
+
+var users = [
+    { 'user': 'barney',  'active': false },
+    { 'user': 'fred',    'active': false },
+    { 'user': 'pebbles', 'active': true }
+  ];
+
+// findIndex
+// console.log(_.findIndex(users,['active',false])) // 0
+
+//findLastIndex
+// console.log(_.findLastIndex(users,['active',false])) // 1
+
+// head
+// console.log(_.head(users))
