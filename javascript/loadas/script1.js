@@ -152,4 +152,11 @@ var evens = _.remove(array, function(n) {
 // => [2, 4]6
 
 // sortedIndexOf
-console.log(_.sortedIndexOf([4, 5, 5, 5, 6],6));
+// console.log(_.sortedIndexOf([4, 5, 5, 5, 6],6));
+
+var zipped = _.zip(['a', 'b'], [1, 2], [true, false]);
+// => [['a', 1, true], ['b', 2, false]]
+console.log(zipped)
+
+console.log(_.unzip(zipped));
+// => [['a', 'b'], [1, 2], [true, false]]
