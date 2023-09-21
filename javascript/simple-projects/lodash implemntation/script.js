@@ -1,5 +1,7 @@
-//const
-//objects
+var amount = 0;
+var totalBill = 0;
+var shipping = 0;
+
 const fruites = {
   apple: { price: 52, amount: 61 },
   mango: { price: 120, amount: 73 },
@@ -7,20 +9,14 @@ const fruites = {
   banana: { price: 12, amount: 352 },
 };
 
-const welcomeMsg = "";
-//var
-var amount = 0;
-var totalBill = 0;
-var shipping = 0;
-
 setInterval(() => {
-  var date = new Date();
-  document.getElementById(
-    "time"
-  ).innerHTML = `<h1>${date.getHours()}: </h1><h2>${date.getMinutes()}: </h2><h3>${date.getSeconds()}</h3>`;
+  const date = new Date();
+  const timeString = `<h1>${date.getHours()}: </h1>
+                      <h2>${date.getMinutes()}: </h2>
+                      <h3>${date.getSeconds()}</h3>`;
+  _.set(document.getElementById("time"), 'innerHTML', timeString);
 }, 1000);
 
-//windos method
 window.onload = () => {
   let str = _.split("Welcome ,To Fruit Shop", "");
 
@@ -36,12 +32,12 @@ window.onload = () => {
   /**this method will set defaults */
   setAmmountAndPrices();
 };
-//functions
+
 function addFruitToCart(pices, price) {
   console.log("enter");
-  var amount = pices * price;
-  var shipping = amount >= 250 ? 0 : 99;
-  var totalBill = amount + shipping;
+  amount += pices * price;
+  shipping = amount >= 250 ? 0 : 99;
+  totalBill = amount + shipping;
   document.getElementById("amount").innerHTML = amount;
   document.getElementById("shipping").innerHTML = shipping;
   document.getElementById("total-bill").innerHTML = totalBill;
@@ -64,7 +60,6 @@ function addFruit(fruitName) {
     document.getElementById(`${fruitName}-error`).classList.add("text-danger");
     _.delay(() => {
       document.getElementById(`${fruitName}-error`).classList.remove("text-danger");
-
     }, 1000);
   } else if (cusWant > weHave) {
     document.getElementById(
@@ -76,30 +71,25 @@ function addFruit(fruitName) {
       let price = fruit.price;
       addFruitToCart(cusWant, price).then((msg)=>{
         let itemLeft = weHave - cusWant;
-        console.log("before:",fruit,fruites);
-        _.set(fruit,'amount',itemLeft);
-        _.set(fruites,fruitName,fruit);
-        console.log("After:",fruit,fruites);
-        document.getElementById(`${fruitName}-amount`).innerHTML =fruit.amount;
+        console.log("before:",fruites);
+        _.set(fruites,`${fruitName}.amount`,itemLeft);
+        console.log("After:",fruites);
+        document.getElementById(`${fruitName}-amount`).innerHTML = itemLeft;
         document.getElementById(`cust-${fruitName}-amount`).value = 0;
       });
     }
   }
 }
 
-//function
 function setAmmountAndPrices() {
-  //operations
-  //events
   _.forEach(fruites, (fruit, name) => {
-    // console.log(`${name}-price`, `${name}-amount`);
     document.getElementById(`${name}-price`).innerHTML = fruit.price;
     document.getElementById(`${name}-amount`).innerHTML = fruit.amount;
   });
 
-  var amount = 0;
-  var totalBill = 0;
-  var shipping = 0;
+   amount = 0;
+   totalBill = 0;
+   shipping = 0;
 
   document.getElementById("amount").innerHTML = amount;
   document.getElementById("shipping").innerHTML = shipping;
