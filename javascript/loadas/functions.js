@@ -72,8 +72,43 @@ var curriedR = _.curryRight(abc);
 // console.log(curried(3)(2)(1));
 // console.log(curriedR(3)(2)(1));
 
-var debounce_fun = _.debounce(function () {
-	console.log('Function debounced after 1000ms!');
-	}, 1000,{maxwait:500});
-debounce_fun();
+// var debounce_fun = _.debounce(function () {
+// 	console.log('Function debounced after 1000ms!');
+// 	}, 1000,{maxwait:500});
+// debounce_fun();
   
+// Using the _.flip() method  
+// flips argument order
+var flipped = _.flip(function() {
+	// console.log(typeof(arguments));
+	return _.toArray(arguments);
+  });
+
+//   console.log(
+// 	flipped('c', 'cpp', 'java', 'python')
+//   );	
+
+var object = { 'a': 1, 'b': 2 };
+var other = { 'c': 3, 'd': 4 };
+ 
+var values = _.memoize(_.values);
+values(object) 
+object.a=5;
+other.c=5;
+// console.log(values(object));
+// console.log(values(other));
+// other.d=5;
+// console.log("AFTER MEMO",values(other));
+// console.log(object);
+// console.log(other);
+
+// Function to check the number
+// is divisible by 5 or not
+function number(n) {
+	return n % 5 == 0;
+  }
+	 
+  // Using the _.negate() method  
+//   console.log(
+// 	_.filter([4, 6, 10, 15, 18],_.negate(number))
+//   );
