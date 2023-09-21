@@ -38,9 +38,9 @@ function addFruitToCart(pices, price) {
   amount += pices * price;
   shipping = amount >= 250 ? 0 : 99;
   totalBill = amount + shipping;
-  document.getElementById("amount").innerHTML = amount;
-  document.getElementById("shipping").innerHTML = shipping;
-  document.getElementById("total-bill").innerHTML = totalBill;
+  _.set(document.getElementById("amount"),'innerHTML', amount);
+  _.set(document.getElementById("shipping"),'innerHTML', shipping);
+  _.set(document.getElementById("total-bill"),'innerHTML', totalBill);
 
   /**Promise
    * that everything is added to cart Successfully
@@ -71,11 +71,11 @@ function addFruit(fruitName) {
       let price = fruit.price;
       addFruitToCart(cusWant, price).then((msg)=>{
         let itemLeft = weHave - cusWant;
-        console.log("before:",fruites);
+        // console.log("before:",fruites);
         _.set(fruites,`${fruitName}.amount`,itemLeft);
-        console.log("After:",fruites);
-        document.getElementById(`${fruitName}-amount`).innerHTML = itemLeft;
-        document.getElementById(`cust-${fruitName}-amount`).value = 0;
+        // console.log("After:",fruites);
+        _.set(document.getElementById(`${fruitName}-amount`),'innerHTML', itemLeft);
+        _.set(document.getElementById(`cust-${fruitName}-amount`),'value', 0);
       });
     }
   }
@@ -83,15 +83,15 @@ function addFruit(fruitName) {
 
 function setAmmountAndPrices() {
   _.forEach(fruites, (fruit, name) => {
-    document.getElementById(`${name}-price`).innerHTML = fruit.price;
-    document.getElementById(`${name}-amount`).innerHTML = fruit.amount;
+    _.set(document.getElementById(`${name}-price`),'innerHTML', fruit.price);
+    _.set(document.getElementById(`${name}-amount`),'innerHTML', fruit.amount);
   });
 
    amount = 0;
    totalBill = 0;
    shipping = 0;
 
-  document.getElementById("amount").innerHTML = amount;
-  document.getElementById("shipping").innerHTML = shipping;
-  document.getElementById("total-bill").innerHTML = totalBill;
+   _.set(document.getElementById("amount"),'innerHTML', amount);
+   _.set(document.getElementById("shipping"),'innerHTML', shipping);
+   _.set(document.getElementById("total-bill"),'innerHTML', totalBill);
 }
