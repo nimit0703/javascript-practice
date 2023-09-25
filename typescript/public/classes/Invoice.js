@@ -4,7 +4,7 @@ export class Invoice {
         this.details = d;
         this.amount = a;
     }
-    format() {
+    formate() {
         return `${this.client} Owns $ ${this.amount} for  ${this.details}`;
     }
 }
