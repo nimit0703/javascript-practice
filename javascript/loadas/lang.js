@@ -63,3 +63,4 @@ var objects = [
    
 
 console.log(_.filter(objects, _.matches({ 'a': 4 })));
+
