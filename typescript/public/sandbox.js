@@ -1,9 +1,10 @@
-var area = function (radious) {
+"use strict";
+let area = (radious) => {
     return Math.PI * radious * radious;
 };
-var arr = ["", null, 1];
+let arr = ["", null, 1];
 arr.push("abc");
 arr.push(1);
 arr.push(null);
 // arr.push(true)
-console.log(arr);
+console.log(arr, arr);

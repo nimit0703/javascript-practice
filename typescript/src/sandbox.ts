@@ -10,4 +10,4 @@ arr.push(null);
 // arr.push(true)
 
 
-console.log(arr);
+console.log(arr,arr);
