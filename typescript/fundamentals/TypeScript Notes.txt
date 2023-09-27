@@ -1,0 +1,26 @@
+Why should I use TypeScript?
+
+-- JavaScript is a loosely typed language. It can be difficult to understand what types of data are being passed around in JavaScript.
+
+-- In JavaScript, function parameters and variables don't have any information! So developers need to look at documentation, or guess based on the implementation.
+
+-- TypeScript allows specifying the types of data being passed around within the code, and has the ability to report errors when the types don't match.
+
+TypeScript Compiler:
+
+TypeScript is transpiled into JavaScript using a compiler.
+
+TypeScript being converted into JavaScript means it runs anywhere that JavaScript runs!
+
+
+Type Assignment:
+
+When creating a variable, there are two main ways TypeScript assigns a type:
+
+Explicit : let firstName: string = "Dylan";
+
+Implicit : let firstName = "Dylan";
+
+
+
+Error In Type Assignment
