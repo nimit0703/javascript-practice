@@ -98,3 +98,81 @@ let x: never = true; // Error: Type 'boolean' is not assignable to type 'never'.
 
 
 </span>
+
+# TypeScript Arrays
+TypeScript has a specific syntax for typing arrays.
+
+```typescript
+const names: string[] = [];
+names.push("Dylan"); // no error
+// names.push(3); // Error: Argument of type 'number' is not assignable to parameter of type 'string'
+```
+
+### Readonly
+
+
+The readonly keyword can prevent arrays from being changed.
+
+
+```typescript
+const names: readonly string[] = ["Dylan"];
+names.push("Jack"); // Error: Property 'push' does not exist on type 'readonly string[]'.
+// try removing the readonly modifier and see if it works?
+```
+
+# TypeScript Tuples
+
+## Typed Arrays
+
+A tuple is a typed array with a pre-defined length and types for each index.
+
+Tuples are great because they allow each element in the array to be a known type of value.
+
+To define a tuple, specify the type of each element in the array:
+
+```typescript
+// define our tuple
+let ourTuple: [number, boolean, string];
+
+// initialize correctly
+ourTuple = [5, false, 'Coding God was here'];
+
+```
+```typescript
+// define our tuple
+let ourTuple: [number, boolean, string];
+
+// initialized incorrectly which throws an error
+ourTuple = [false, 'Coding God was mistaken', 5];
+
+```
+
+### Readonly Tuple
+A good practice is to make your tuple readonly.
+
+Tuples only have strongly defined types for the initial values:
+```typescript
+// define our tuple
+let ourTuple: [number, boolean, string];
+// initialize correctly
+ourTuple = [5, false, 'Coding God was here'];
+// We have no type safety in our tuple for indexes 3+
+ourTuple.push('Something new and wrong');
+console.log(ourTuple);
+```
+```typescript
+// define our readonly tuple
+const ourReadonlyTuple: readonly [number, boolean, string] = [5, true, 'The Real Coding God'];
+// throws error as it is readonly.
+ourReadonlyTuple.push('Coding God took a day off');
+
+```
+
+
+
+
+
+
+```typescript
+
+```
