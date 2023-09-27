@@ -168,11 +168,112 @@ ourReadonlyTuple.push('Coding God took a day off');
 
 ```
 
+# Typescript Objects
+
+```typescript
+const car: { type: string, model: string, year: number } = {
+  type: "Toyota",
+  model: "Corolla",
+  year: 2009
+};
+
+```
+
+### Example without an optional property
+```typescript
+const car: { type: string, mileage: number } = { // Error: Property 'mileage' is missing in type '{ type: string; }' but required in type '{ type: string; mileage: number; }'.
+  type: "Toyota",
+};
+car.mileage = 2000;
+
+```
+### Example with an optional property
+
+```typescript
+const car: { type: string, mileage?: number } = { // no error
+  type: "Toyota"
+};
+car.mileage = 2000;
+
+```
 
 
+## Type Aliases
+Type Aliases allow defining types with a custom name (an Alias).
+
+Type Aliases can be used for primitives like string or more complex types such as objects and arrays:
+```typescript
+type CarYear = number
+type CarType = string
+type CarModel = string
+type Car = {
+  year: CarYear,
+  type: CarType,
+  model: CarModel
+}
+
+const carYear: CarYear = 2001
+const carType: CarType = "Toyota"
+const carModel: CarModel = "Corolla"
+const car: Car = {
+  year: carYear,
+  type: carType,
+  model: carModel
+};
+```
+
+# TypeScript Functions
+### Return Type
+The type of the value returned by the function can be explicitly defined.
+
+```typescript
+function getTime(): number {
+  return new Date().getTime();
+}
+
+function printHello(): void {
+  console.log('Hello!');
+}
 
 
+// Function parameters are typed with a similar syntax as variable declarations.
+function multiply(a: number, b: number) {
+  return a * b;
+}
 
+//By default TypeScript will assume all parameters are required, but they can be explicitly marked as optional.
+
+// the `?` operator here marks parameter `c` as optional
+function add(a: number, b: number, c?: number) {
+  return a + b + (c || 0);
+}
+
+// For parameters with default values, the default value goes after the type annotation:
+function pow(value: number, exponent: number = 10) {
+  return value ** exponent;
+}
+
+```
+
+# TypeScript Casting
+
+
+There are times when working with types where it's necessary to override the type of a variable, such as when incorrect types are provided by a library.
+Casting is the process of overriding a type.
+```typescript
+let x: unknown = 'hello';
+console.log((x as string).length);
+
+```
+### Casting with <>
+
+```typescript
+let x: unknown = 'hello';
+console.log((<string>x).length);
+```
+```typescript
+
+```
 ```typescript
 
 ```
