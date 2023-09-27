@@ -26,3 +26,75 @@ In TypeScript, you can assign types explicitly or rely on type inference:
 
 ```typescript
 let firstName: string = "Dylan";
+```
+
+### Implicit Type Assignment
+
+```typescript
+let firstName = "Dylan";
+```
+
+### Error In Type Assignment
+
+```typescript
+let firstName: string = "Dylan"; // type string
+firstName = 33; // attempts to re-assign the value to a different type
+```
+
+## TypeScript Special Types
+
+### Type: any
+any is a type that disables type checking and effectively allows all types to be used.
+
+```typescript
+let variable: any = true;
+variable = "string"; // no error as it can be "any" type
+Math.round(variable); // no error as it can be "any" type
+```
+### Type: unknown
+unknown is a similar, but safer alternative to any.
+
+TypeScript will prevent unknown types from being used, as shown in the below example:
+
+
+```typescript
+let w: unknown = 1;
+w = "string"; // no error
+w = {
+  runANonExistentMethod: () => {
+    console.log("I think therefore I am");
+  }
+} as { runANonExistentMethod: () => void}
+// How can we avoid the error for the code commented out below when we don't know the type?
+// w.runANonExistentMethod(); // Error: Object is of type 'unknown'.
+if(typeof w === 'object' && w !== null) {
+  (w as { runANonExistentMethod: Function }).runANonExistentMethod();
+}
+// Although we have to cast multiple times we can do a check in the if to secure our type and have a safer casting
+
+```
+
+### Type: never
+never effectively throws an error whenever it is defined.
+
+
+```typescript
+let x: never = true; // Error: Type 'boolean' is not assignable to type 'never'.
+
+```
+<span style="background-color: yellow;">never is rarely used, especially by itself, its primary use is in  <span style="color:red;">advanced generics</span>.
+</span>
+
+### Type: undefined & null
+undefined and null are types that refer to the JavaScript primitives undefined and null respectively.
+
+
+
+```typescript
+let x: never = true; // Error: Type 'boolean' is not assignable to type 'never'.
+
+```
+<span style="background-color: pink; ">These types don't have much use unless <span style="color:red;">strictNullChecks</span> is enabled in the  <span style="color:red;">tsconfig.json</span> file.
+
+
+</span>
