@@ -6,19 +6,25 @@
   </head>
   <body>
     <div id="app1" v-cloak>
-      <p>{{fullName()}}</p>
+      <p>{{fullName}}</p>
       <p><a :href="url" target="_blank" rel="noopener noreferrer">Github</a></p>
       <p v-html="raw_url"></p>
+      <p>{{typeof age}}</p>
       <hr>
       <label >First Name</label>
-      <input type="text" v-model="firstName">
+      <input type="text" v-model.lazy.trim="firstName">
       
       <label >Middle Name</label>
       <input type="text" @keyup.enter="updateMiddleName">
-
+      
       <label >Last Name</label>
       <input type="text" :value="lastName" @input.prevent='updateLastName("event occer",$event)'>
-      <p>{{age}}</p>
+      
+      
+      <label >Age</label>
+      <input type="number" v-model.number="age">
+      
+      
       <button @click="age++">Increment</button>
       <button @click="decrement">Decrement</button>
     </div>

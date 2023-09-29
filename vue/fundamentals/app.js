@@ -11,9 +11,6 @@ data() {
     }
 },
 methods: {
-    fullName(){
-        return `${this.firstName} ${this.middleName} ${this.lastName}`
-    },
     decrement(){
         this.age--;
     },
@@ -25,6 +22,20 @@ methods: {
         this.middleName = event.target.value;
     }
 },
+computed:{
+    fullName(){
+        console.log("fullName computed called");
+        return `${this.firstName} ${this.middleName} ${this.lastName}`
+    },
+},
+watch:{
+    age(newVal,oldVal){
+        setTimeout(() => {
+            this.age = 20
+        }, 3000);
+
+    }
+}
 
 }).mount('#app1')
 
