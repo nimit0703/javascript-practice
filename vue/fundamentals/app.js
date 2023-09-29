@@ -2,12 +2,23 @@ const vm = Vue.createApp({
 data() {
     return {
         firstName : 'Nimit',
-        lastName: 'Trevadiya'
+        lastName: 'Trevadiya',
+        url : 'https://github.com/nimit0703',
+        raw_url : '<a href="https://github.com/nimit0703" target="_blank">Github</a>',
+        age : 20,
+
     }
 },
 methods: {
     fullName(){
         return this.firstName +" "+ this.lastName
+    },
+    decrement(){
+        this.age--;
+    },
+    updateLastName(message,event){
+        console.log(message);
+        this.lastName = event.target.value;
     }
 },
 
