@@ -12,8 +12,12 @@
       <hr>
       <label >First Name</label>
       <input type="text" v-model="firstName">
+      
+      <label >Middle Name</label>
+      <input type="text" @keyup.enter="updateMiddleName">
+
       <label >Last Name</label>
-      <input type="text" :value="lastName" @input='updateLastName("event occer",$event)'>
+      <input type="text" :value="lastName" @input.prevent='updateLastName("event occer",$event)'>
       <p>{{age}}</p>
       <button @click="age++">Increment</button>
       <button @click="decrement">Decrement</button>

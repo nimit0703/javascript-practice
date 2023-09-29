@@ -2,6 +2,7 @@ const vm = Vue.createApp({
 data() {
     return {
         firstName : 'Nimit',
+        middleName : "",
         lastName: 'Trevadiya',
         url : 'https://github.com/nimit0703',
         raw_url : '<a href="https://github.com/nimit0703" target="_blank">Github</a>',
@@ -11,7 +12,7 @@ data() {
 },
 methods: {
     fullName(){
-        return this.firstName +" "+ this.lastName
+        return `${this.firstName} ${this.middleName} ${this.lastName}`
     },
     decrement(){
         this.age--;
@@ -19,6 +20,9 @@ methods: {
     updateLastName(message,event){
         console.log(message);
         this.lastName = event.target.value;
+    },
+    updateMiddleName(event){
+        this.middleName = event.target.value;
     }
 },
 
