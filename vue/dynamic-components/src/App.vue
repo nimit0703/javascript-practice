@@ -1,7 +1,8 @@
 <template>
   <button @click="flag=!flag"> toggle</button>
-  <transition name="fade">
+  <transition name="fade" mode="out-in">
     <h2 v-if="flag"> Hello World</h2>
+    <h2 v-else="flag"> Changed animation</h2>
   </transition>
 </template>
 
