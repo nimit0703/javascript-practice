@@ -1,28 +1,38 @@
 <template>
-  <select v-model="onSelectComponent">
-    <option value="Home">Home</option>
-    <option value="About">About</option>
-  </select>
-  <keep-alive>
-    <component :is="onSelectComponent"></component>
-  </keep-alive>
+  <button @click="flag=!flag"> toggle</button>
+  <transition name="fade">
+    <h2 v-if="flag"> Hello World</h2>
+  </transition>
 </template>
 
 <script>
-import Home from "./components/Home.vue";
-import About from "./components/About.vue";
+
 
 export default {
   name: "App",
-  components: {
-    Home,
-    About,
-  },
+  
 
   data() {
     return {
-      onSelectComponent: "Home",
+      flag:false,
     };
   },
 };
 </script>
+
+<style>
+
+.fade-enter-from{
+  opacity: 0;
+}
+
+.fade-enter-active{
+  transition: all 0.75s linear;
+}
+
+.fade-leave-to{
+  color: rgb(80, 80, 80);
+  transition: all 0.75s linear;
+  opacity: 0;
+}
+</style>
