@@ -12,3 +12,10 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+p:hover{
+  color: darken(red,15%)
+}
+
+</style>
