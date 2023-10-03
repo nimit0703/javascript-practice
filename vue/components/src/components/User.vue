@@ -6,7 +6,15 @@
 <script>
     export default {
         name:"User",
-        props: ["age"],
+        props: {
+            age: {
+                type:Number,
+            },
+            validator(value){
+                return value<=130;
+
+            }
+        },
         methods:{
             onChange(){
                 this.$emit('age-change')

@@ -1,7 +1,7 @@
 <template>
   <!-- <button @click="age++">Increment Age</button> -->
   <greeting :age="age"></greeting>
-  <user :age="age" @age-change="age++"></user>
+  <user :age="age" @age-change="ageUpdate"></user>
 </template>
 
 
@@ -19,7 +19,17 @@ import User from './components/User.vue';
       return{
         age:20,
       }
-    }
+    },
+    methods: {
+      ageUpdate(){
+        this.age++;
+        // console.log(x,y,z);
+      },
+      ageTrigger(a){
+        
+        console.log(a);
+        }
+    },
   }
 </script>
 
