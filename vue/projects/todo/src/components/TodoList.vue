@@ -38,19 +38,20 @@ export default {
       this.$store.commit("updateItem", this.items[i]);
     },
     deleteTodo(index) {
-      this.$store.commit("deleteItem", index);
+      if (confirm("sure you want to delete??")) {
+        this.$store.commit("deleteItem", index);
+      }
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 #todoList {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
-  /* justify-content: center; */
   padding-top: 5vw;
   color: #fff;
   font-size: 1.5vw;
@@ -63,14 +64,15 @@ export default {
 .todo {
   display: flex;
   width: 60vw;
-  background-color: rgb(193, 193, 193);
-  margin: 10px;
+  background-color: #fcbaad;
+  color: #fff;
+  margin: 15px;
 }
 .todo-text {
   padding: 0 9px;
   font-family: sans-serif;
   font-size: 1.3vw;
-  color: #000000;
+  color: #e48586;
   font-weight: 100;
   text-transform: capitalize;
   width: 50vw;
@@ -83,13 +85,13 @@ export default {
 .edit {
   cursor: pointer;
   text-align: center;
-  background-color: blue;
+  background-color: #9d44c0;
   padding: 0 0.7vw;
 }
 .delete {
   cursor: pointer;
   text-align: center;
-  background-color: red;
+  background-color: #ec53b0;
   padding: 0 1vw;
 }
 </style>
