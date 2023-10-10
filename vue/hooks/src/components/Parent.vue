@@ -26,6 +26,10 @@ export default {
     ChildB,
   },
   mixins:[defaultConsoleLogs],
+  //added bcz beforeCreate in Mixins use data proparty which can't be use in before create.
+  beforeCreate() {
+    console.log("beforeCreate :: Child-B");
+  },
 
 };
 </script>
