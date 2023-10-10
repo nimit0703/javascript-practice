@@ -2,30 +2,16 @@
   <p>This is Child B</p>
 </template>
 <script>
+import  defaultConsoleLogs from '../mixins/logHooks';
+
+
 export default {
-  beforeCreate() {
-    console.log("beforeCreate :: Child-B");
+  data() {
+    return {
+      loggerName:"Child-B",
+    }
   },
-  created() {
-    console.log("created :: Child-B");
-  },
-  beforeMount() {
-    console.log("beforeMount :: Child-B");
-  },
-  mounted() {
-    console.log("mounted :: Child-B");
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate :: Child-B");
-  },
-  updated() {
-    console.log("updated :: Child-B");
-  },
-  beforeUnmount() {
-    console.log("beforeUnmount :: Child-B");
-  },
-  unmounted() {
-    console.log("unmounted :: Child-B");
-  },
+  mixins:[defaultConsoleLogs],
+  
 };
 </script>
