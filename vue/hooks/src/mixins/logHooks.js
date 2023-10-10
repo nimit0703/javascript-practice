@@ -4,9 +4,11 @@ export default {
         loggerName:"componentName",
       }
     },
-    beforeCreate() {
-      console.log("beforeCreate ::",this.loggerName);
-    },
+
+    // commenting bcz can't use data property in beforeCreate hook
+    // beforeCreate() {
+    //   console.log("beforeCreate ::",this.loggerName);
+    // },
     created() {
       console.log("created ::",this.loggerName);
     },
